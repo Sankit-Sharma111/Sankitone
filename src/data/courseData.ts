@@ -71,10 +71,20 @@ export const courseData = [
         "title_hi": "i. चयनकर्ता",
         "content_en": "### Selectors\n\n### • Element Selector\nSelects HTML elements based on the element name.\n\n### • Class Selector\nSelects HTML elements with a specific class attribute. Starts with a dot `.class-name`.\n\n### • ID Selector\nSelects a unique element with a specific id attribute. Starts with a hash `#id-name`.\n\n### • Group Selector\nSelects all elements with the same style definitions. Separated by commas `h1, h2, p`.\n\n### • Descendant Selector\nSelects all elements that are descendants of a specified element. Space separated `div p`.\n\n### • Child Selector\nSelects all elements that are the children of a specified element. Uses `>` like `div > p`.\n\n### • Adjacent Sibling Selector\nSelects an element that is directly after another specific element. Uses `+` like `div + p`.\n\n### • General Sibling Selector\nSelects all elements that are siblings of a specified element. Uses `~` like `div ~ p`.\n\n### • Attribute Selectors\nSelects elements with a specific attribute or attribute value. `[target=\"_blank\"]`.",
         "content_hi": "### चयनकर्ता\n\n### • तत्व चयनकर्ता (Element Selector)\nतत्व नाम के आधार पर HTML तत्वों का चयन करता है।\n\n### • वर्ग चयनकर्ता (Class Selector)\nएक विशिष्ट वर्ग विशेषता वाले HTML तत्वों का चयन करता है। एक बिंदु `.class-name` से शुरू होता है।\n\n### • आईडी चयनकर्ता (ID Selector)\nएक विशिष्ट आईडी विशेषता वाले एक अद्वितीय तत्व का चयन करता है। हैश `#id-name` से शुरू होता है।\n\n### • समूह चयनकर्ता (Group Selector)\nसमान शैली परिभाषाओं वाले सभी तत्वों का चयन करता है। अल्पविराम `h1, h2, p` द्वारा अलग किया गया।\n\n### • वंशज चयनकर्ता (Descendant Selector)\nउन सभी तत्वों का चयन करता है जो किसी निर्दिष्ट तत्व के वंशज हैं। स्थान अलग `div p`।\n\n### • बाल चयनकर्ता (Child Selector)\nउन सभी तत्वों का चयन करता है जो एक निर्दिष्ट तत्व के बच्चे हैं। `div > p` की तरह `>` का उपयोग करता है।\n\n### • आसन्न सिबलिंग चयनकर्ता (Adjacent Sibling Selector)\nउस तत्व का चयन करता है जो सीधे दूसरे विशिष्ट तत्व के बाद होता है। `div + p` की तरह `+` का उपयोग करता है।\n\n### • सामान्य सिबलिंग चयनकर्ता (General Sibling Selector)\nउन सभी तत्वों का चयन करता है जो किसी निर्दिष्ट तत्व के भाई-बहन हैं। `div ~ p` की तरह `~` का उपयोग करता है।\n\n### • विशेषता चयनकर्ता (Attribute Selectors)\nएक विशिष्ट विशेषता या विशेषता मान वाले तत्वों का चयन करता है। `[target=\"_blank\"]`.",
-        "sandboxCode": {
-          "html": "<div id=\"main\">\n  <p class=\"highlight\">Class selector</p>\n  <p>Descendant</p>\n</div>\n<p>General sibling</p>",
-          "css": "#main {\n  border: 1px solid black;\n}\n.highlight {\n  color: red;\n}\n#main p {\n  font-weight: bold;\n}"
-        }
+        "sandboxes": [
+          {
+            "title_en": "Element, Class, ID",
+            "title_hi": "तत्व, वर्ग, आईडी",
+            "html": "<h1 id=\"main-title\">Main Heading</h1>\n<p class=\"text-content\">A paragraph with a class.</p>\n<span>A normal span element</span>",
+            "css": "h1 {\n  color: blue;\n}\n.text-content {\n  font-size: 18px;\n  color: gray;\n}\n#main-title {\n  text-align: center;\n}"
+          },
+          {
+            "title_en": "Group & Combinator Selectors",
+            "title_hi": "समूह और कॉम्बिनेटर चयनकर्ता",
+            "html": "<div class=\"container\">\n  <h2>Group H2</h2>\n  <p>Child</p>\n  <div><p>Descendant</p></div>\n</div>\n<h3>Group H3</h3>\n<p>Adjacent</p>\n<p>General sibling</p>",
+            "css": "h2, h3 {\n  color: green;\n}\n.container p {\n  margin: 10px;\n}\n.container > p {\n  font-weight: bold;\n}\nh3 + p {\n  color: purple;\n}\nh3 ~ p {\n  text-decoration: underline;\n}"
+          }
+        ]
       },
       {
         "id": "t2-2",

@@ -75,35 +75,35 @@ export function CertificateView({ onBack }: { onBack: () => void }) {
         {/* Certificate Rendering Box - Landscape Aspect Ratio */}
         <div 
           ref={certRef} 
-          className="bg-white p-8 relative shadow-2xl flex flex-col items-center text-center shrink-0"
-          style={{ width: '800px', height: '565px', border: '16px solid #4F46E5' }}
+          className="p-8 relative shadow-2xl flex flex-col items-center text-center shrink-0"
+          style={{ width: '800px', height: '565px', border: '16px solid #4F46E5', backgroundColor: '#ffffff' }}
         >
-          <div className="absolute top-4 left-4 right-4 bottom-4 border-2 border-indigo-200"></div>
+          <div className="absolute top-4 left-4 right-4 bottom-4 border-2" style={{ borderColor: '#c7d2fe' }}></div>
           
           <div className="mt-8 mb-4">
-            <h1 className="text-5xl font-serif font-bold text-indigo-900 tracking-widest uppercase">Certificate</h1>
-            <h2 className="text-xl font-serif text-indigo-600 tracking-widest uppercase mt-2">of Completion</h2>
+            <h1 className="text-5xl font-serif font-bold tracking-widest uppercase" style={{ color: '#312e81' }}>Certificate</h1>
+            <h2 className="text-xl font-serif tracking-widest uppercase mt-2" style={{ color: '#4f46e5' }}>of Completion</h2>
           </div>
           
-          <p className="text-slate-500 italic mt-8 text-lg">This is proudly presented to</p>
+          <p className="italic mt-8 text-lg" style={{ color: '#64748b' }}>This is proudly presented to</p>
           
-          <h3 className="text-4xl font-serif font-bold text-slate-800 mt-4 mb-2 border-b-2 border-indigo-200 inline-block px-8 pb-2">
+          <h3 className="text-4xl font-serif font-bold mt-4 mb-2 border-b-2 inline-block px-8 pb-2" style={{ color: '#1e293b', borderBottomColor: '#c7d2fe' }}>
             {certificateData.name}
           </h3>
           
-          <p className="text-slate-600 mt-6 max-w-2xl leading-relaxed">
+          <p className="mt-6 max-w-2xl leading-relaxed" style={{ color: '#475569' }}>
             For successfully completing the comprehensive CSS Learning Track on Sankit Academy, 
             demonstrating proficiency in CSS Selectors, Box Model, Flexbox, Layouts, and modern CSS techniques.
           </p>
 
           <div className="mt-auto mb-8 flex justify-between w-full px-16">
             <div className="text-center">
-              <div className="border-b border-slate-400 w-40 pb-1 font-bold text-slate-800">{certificateData.date}</div>
-              <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Date</div>
+              <div className="border-b w-40 pb-1 font-bold" style={{ borderColor: '#94a3b8', color: '#1e293b' }}>{certificateData.date}</div>
+              <div className="text-xs uppercase tracking-widest mt-1" style={{ color: '#64748b' }}>Date</div>
             </div>
             <div className="text-center">
-              <div className="border-b border-slate-400 w-40 pb-1 font-bold text-slate-800 italic font-serif">Sankit Academy</div>
-              <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Issuer</div>
+              <div className="border-b w-40 pb-1 font-bold italic font-serif" style={{ borderColor: '#94a3b8', color: '#1e293b' }}>Sankit Academy</div>
+              <div className="text-xs uppercase tracking-widest mt-1" style={{ color: '#64748b' }}>Issuer</div>
             </div>
           </div>
         </div>
