@@ -12,12 +12,34 @@ export function LessonDetail() {
     return null;
   }
 
-  const handleLoadCode = () => {
-    if (selectedTopic.sandboxCode) {
-      setEditorHtml(selectedTopic.sandboxCode.html);
-      setEditorCss(selectedTopic.sandboxCode.css);
-      setActiveTab("editor");
-    }
+  const handleLoadCode = (sandbox: { html: string; css: string }) => {
+    setEditorHtml(sandbox.html);
+    setEditorCss(sandbox.css);
+    setActiveTab("editor");
+  };
+
+  const renderSandbox = (sandbox: { html: string; css: string; title_en?: string; title_hi?: string; title?: string }, index: number) => {
+    const sandboxTitle = language === 'en' 
+      ? sandbox.title_en || sandbox.title || "CSS INTERACTIVE"
+      : sandbox.title_hi || sandbox.title || "CSS INTERACTIVE";
+
+    return (
+      <div key={index} className="px-5 pb-5 bg-white dark:bg-slate-900">
+        <div className="bg-[#111827] rounded-3xl p-5 mb-4 shadow-sm border border-slate-800">
+          <div className="text-slate-400 text-xs font-bold tracking-widest mb-3 uppercase">{sandboxTitle}</div>
+          <pre className="text-slate-50 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+            {sandbox.css}
+          </pre>
+        </div>
+        <button
+          onClick={() => handleLoadCode(sandbox)}
+          className="w-full bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl p-4 font-bold shadow-md shadow-indigo-200 dark:shadow-none flex items-center justify-center gap-2 transition-transform active:scale-95"
+        >
+          <Code size={20} />
+          {t.openInEditor || "Load Code Into Editor"}
+        </button>
+      </div>
+    );
   };
 
   return (
@@ -38,23 +60,11 @@ export function LessonDetail() {
         </div>
       </div>
 
-      {selectedTopic.sandboxCode && (
-        <div className="px-5 pb-5 bg-white dark:bg-slate-900">
-          <div className="bg-[#111827] rounded-3xl p-5 mb-4 shadow-sm border border-slate-800">
-            <div className="text-slate-400 text-xs font-bold tracking-widest mb-3 uppercase">CSS INTERACTIVE</div>
-            <pre className="text-slate-50 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
-              {selectedTopic.sandboxCode.css}
-            </pre>
-          </div>
-          <button
-            onClick={handleLoadCode}
-            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl p-4 font-bold shadow-md shadow-indigo-200 dark:shadow-none flex items-center justify-center gap-2 transition-transform active:scale-95"
-          >
-            <Code size={20} />
-            {t.openInEditor || "Load Code Into Editor"}
-          </button>
-        </div>
-      )}
+      {selectedTopic.sandboxes ? (
+        selectedTopic.sandboxes.map((sandbox, index) => renderSandbox(sandbox, index))
+      ) : selectedTopic.sandboxCode ? (
+        renderSandbox(selectedTopic.sandboxCode, 0)
+      ) : null}
     </div>
   );
 }

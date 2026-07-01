@@ -10,6 +10,13 @@ export interface Topic {
     html: string;
     css: string;
   };
+  sandboxes?: {
+    title?: string;
+    title_en?: string;
+    title_hi?: string;
+    html: string;
+    css: string;
+  }[];
 }
 
 export interface Chapter {
