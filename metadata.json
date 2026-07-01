@@ -1,0 +1,6 @@
+{
+  "name": "Sankit Academy CSS Learning",
+  "description": "A comprehensive mobile-first CSS learning app with lessons, quizzes, and a built-in code editor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
